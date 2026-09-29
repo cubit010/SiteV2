@@ -1,0 +1,32 @@
+name: deploy
+on:
+  push: { branches: [main] }
+  workflow_dispatch:
+permissions: { contents: read, pages: write, id-token: write }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble site (secret page is injected from repo secrets)
+        env:
+          SLUG: ${{ secrets.SECRET_SLUG }}
+          PAGE: ${{ secrets.SECRET_PAGE_B64 }}
+        run: |
+          mkdir _site
+          rsync -a --exclude=.git --exclude=.github --exclude=_site --exclude=README.md --exclude=secret.example.html ./ _site/
+          if [ -n "$SLUG" ] && [ -n "$PAGE" ]; then
+            mkdir -p "_site/$SLUG"
+            echo "$PAGE" | base64 -d > "_site/$SLUG/index.html"
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: _site }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.d.outputs.page_url }}
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4
