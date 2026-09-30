@@ -360,14 +360,6 @@ b {
 
 
 
-/* Touch devices only: native snapping.
-   Mouse/trackpad snapping is animated in app.js, so native snapping
-   must NOT be enabled here for them (it makes the animation teleport). */
-@media (hover: none) {
-  html:has(.hero) {
-    scroll-snap-type: none;
-  }
-}
 
 /* ---------- Cards, grid, buttons ---------- */
 
