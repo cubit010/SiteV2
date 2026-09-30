@@ -83,6 +83,15 @@ b {
   font-size: .85rem;
 }
 
+.copy {
+  color: var(--mute);
+  font-size: .85rem;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
 .ref {
   font-size: .75rem;
   color: var(--silk);
@@ -329,6 +338,18 @@ b {
   align-items: center;
   gap: 1rem;
   padding: 12vh 1.25rem;
+  text-align: center;
+}
+
+.foot {
+  position: relative;
+  z-index: 2;
+  height: 10svh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1vh 1.25rem;
   text-align: center;
 }
 
