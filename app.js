@@ -38,7 +38,7 @@
       '<button id="tg" aria-label="Toggle PCB / schematic mode" title="Toggle PCB / schematic editor">' +
       ICO +
       '</button>' +
-      '<div id="sb"><span id="xy"></span><span id="gr"></span><span id="ly"></span><b>cubit010.dev</b></div>'
+      '<div id="sb"><span id="xy"></span><span id="gr"></span><span id="ly"></span><b>© 2026 cubit010</b></div>'
   );
 
   const tg = $('#tg');
