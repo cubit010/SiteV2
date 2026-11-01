@@ -473,3 +473,13 @@ b {
 html {
   scroll-behavior: auto;
 }
+
+.pgp-card {
+    max-width: 480px;
+    margin-inline: auto;
+}
+
+.pgp-card .btn {
+    display: table;
+    margin: 20px auto 0;
+}
